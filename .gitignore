@@ -1,0 +1,50 @@
+# 環境變數檔案（包含 API 金鑰）
+.env
+
+# 暫存檔案
+temp/
+*.tmp
+*.temp
+
+# 音訊和影片檔案
+*.mp3
+*.mp4
+*.mkv
+*.mov
+*.avi
+*.webm
+
+# 日誌檔案
+*.log
+video_to_summary.log
+
+# Python 暫存檔案
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# 虛擬環境
+.venv/
+venv/
+env/
+
+# IDE 檔案
+.vscode/
+.idea/
+*.swp
+*.swo
+.obsidian/
+
+# 作業系統檔案
+.DS_Store
+Thumbs.db
+
+# Docker 相關
+.dockerignore
+
+# 備份檔案
+*.bak
+*.backup 
