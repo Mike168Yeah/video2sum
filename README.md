@@ -33,6 +33,8 @@ cd "C:\MyProjects\AI\video-to-summary"
 ### 安裝與初始化
 
 > **請先啟動 Docker Desktop，確保 Docker 軟體已開啟，再執行 `install_video2sum.bat`！**
+> 
+> **注意：安裝過程會需要你輸入自己的 Google Gemini API 金鑰，這是後續影片分析 AI（重點摘要）主要依賴的雲端模型來源。**
 
 ```bash
 ./install_video2sum.bat
