@@ -1,5 +1,9 @@
 # Video2Sum - 影片重點整理工具
 
+> **安裝需求**：
+> - 必須先安裝 [Git](https://git-scm.com/)（用於下載專案）
+> - 必須先安裝 [Docker Desktop](https://www.docker.com/products/docker-desktop/)（用於執行主程式）
+
 自動將影片或 SRT 字幕整理成繁體中文重點筆記，支援 Docker、批次檔、Gemini API 模型自訂，適合團隊協作與 Obsidian 筆記整合。
 
 ---
@@ -27,6 +31,9 @@ cd "C:\MyProjects\AI\video-to-summary"
 ```
 
 ### 安裝與初始化
+
+> **請先啟動 Docker Desktop，確保 Docker 軟體已開啟，再執行 `install_video2sum.bat`！**
+
 ```bash
 ./install_video2sum.bat
 ```
