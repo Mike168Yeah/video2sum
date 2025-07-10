@@ -41,6 +41,12 @@ env/
 .obsidian/
 Media_Notes/.obsidian/
 
+# Media_Notes 與 input 內容全部忽略（但保留 .gitkeep）
+Media_Notes/*
+!Media_Notes/.gitkeep
+input/*
+!input/.gitkeep
+
 # 作業系統檔案
 .DS_Store
 Thumbs.db
