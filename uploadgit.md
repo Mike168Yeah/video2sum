@@ -138,4 +138,71 @@ git push -u origin main
 
 ---
 
+### 遠端已存在內容導致 push 失敗怎麼辦？
+
+如果 push 時出現：
+
+```
+error: failed to push some refs to 'https://github.com/xxx/xxx.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. ...
+```
+
+請依下列步驟操作：
+
+1. **先把遠端內容拉下來（rebase 合併）**
+   ```bash
+   git pull --rebase origin main
+   ```
+   > 如果你的遠端預設分支是 master，請改成 `origin master`
+
+2. **解決衝突（如有）**
+   - 如果有檔案衝突，git 會提示你哪些檔案有衝突，請打開檔案手動合併內容，然後：
+     ```bash
+     git add <有衝突的檔案>
+     git rebase --continue
+     ```
+
+3. **再 push 上去**
+   ```bash
+   git push -u origin main
+   ```
+
+> **注意：**
+> 這個流程不會自動刪除你的本機檔案，只有同名檔案內容不同時需要你手動合併，其他檔案都會保留。
+
+---
+
+## git 身分認證設定（第一次用 git 必看）
+
+如果 commit 時出現如下錯誤：
+
+```
+Author identity unknown
+
+*** Please tell me who you are.
+...
+fatal: unable to auto-detect email address
+```
+
+請依下列方式設定你的 git 使用者名稱與 email：
+
+### 設定全域（推薦，所有專案都會用這組）
+
+```bash
+git config --global user.name "你的名字"
+git config --global user.email "你的email@example.com"
+```
+
+### 只設定這個專案（不影響其他專案）
+
+```bash
+git config user.name "你的名字"
+git config user.email "你的email@example.com"
+```
+
+> 建議 email 用你註冊 GitHub 的 email，這樣 commit 會自動連結到你的 GitHub 帳號。
+
+---
+
 有任何 git 操作問題，歡迎隨時提問！ 
