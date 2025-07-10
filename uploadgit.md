@@ -12,7 +12,33 @@ cd /你的/專案/路徑/video-to-summary
 
 ---
 
-## 2. 初始化 git（如果還沒 init 過）
+## 2. 設定 git 身分認證（第一次用 git 必看）
+
+如果 commit 時出現如下錯誤：
+```
+Author identity unknown
+*** Please tell me who you are.
+...
+fatal: unable to auto-detect email address
+```
+請依下列方式設定你的 git 使用者名稱與 email：
+
+### 設定全域（推薦，所有專案都會用這組）
+```bash
+git config --global user.name "你的名字"
+git config --global user.email "你的email@example.com"
+```
+
+### 只設定這個專案（不影響其他專案）
+```bash
+git config user.name "你的名字"
+git config user.email "你的email@example.com"
+```
+> 建議 email 用你註冊 GitHub 的 email，這樣 commit 會自動連結到你的 GitHub 帳號。
+
+---
+
+## 3. 初始化 git（如果還沒 init 過）
 
 ```bash
 git init
@@ -20,7 +46,7 @@ git init
 
 ---
 
-## 3. 設定 .gitignore（避免敏感檔案被上傳）
+## 4. 設定 .gitignore（避免敏感檔案被上傳）
 
 請確認專案根目錄有 `.gitignore`，建議內容如下：
 
@@ -63,6 +89,7 @@ env/
 .idea/
 *.swp
 *.swo
+.obsidian/
 
 # 作業系統檔案
 .DS_Store
@@ -89,7 +116,7 @@ outputs/
 
 ---
 
-## 4. 加入所有檔案並 commit
+## 5. 加入所有檔案並 commit
 
 ```bash
 git add .
@@ -98,7 +125,7 @@ git commit -m "init: first release"
 
 ---
 
-## 5. 設定遠端 repo
+## 6. 設定遠端 repo
 
 ```bash
 git remote add origin https://github.com/Mike168Yeah/video2sum.git
@@ -107,7 +134,7 @@ git remote add origin https://github.com/Mike168Yeah/video2sum.git
 
 ---
 
-## 6. 推送到 GitHub
+## 7. 推送到 GitHub
 
 ```bash
 git branch -M main
@@ -117,13 +144,7 @@ git push -u origin main
 
 ---
 
-## 7. 完成！
-
-你的專案就會出現在 GitHub 上，其他同事可以直接 clone 使用。
-
----
-
-## 常見問題排查
+## 8. 常見問題排查
 
 - **remote already exists**
   > 執行：
@@ -136,18 +157,14 @@ git push -u origin main
 - **大檔案無法推送**
   > 請考慮用 Git LFS 或排除大檔案。
 
----
-
 ### 遠端已存在內容導致 push 失敗怎麼辦？
 
 如果 push 時出現：
-
 ```
 error: failed to push some refs to 'https://github.com/xxx/xxx.git'
 hint: Updates were rejected because the remote contains work that you do not
 hint: have locally. ...
 ```
-
 請依下列步驟操作：
 
 1. **先把遠端內容拉下來（rebase 合併）**
@@ -173,35 +190,20 @@ hint: have locally. ...
 
 ---
 
-## git 身分認證設定（第一次用 git 必看）
+### 如何強制覆蓋遠端（不建議，請小心使用）
 
-如果 commit 時出現如下錯誤：
-
-```
-Author identity unknown
-
-*** Please tell me who you are.
-...
-fatal: unable to auto-detect email address
-```
-
-請依下列方式設定你的 git 使用者名稱與 email：
-
-### 設定全域（推薦，所有專案都會用這組）
+如果你確定本機內容才是正確的，想要**直接覆蓋遠端 repo**，可以使用：
 
 ```bash
-git config --global user.name "你的名字"
-git config --global user.email "你的email@example.com"
+git push --force origin main
 ```
 
-### 只設定這個專案（不影響其他專案）
+> **警告：** 這會把遠端的 main 分支內容全部用你本機的內容取代，遠端原有的 commit 會消失，請務必確認沒有人需要遠端的內容！
 
-```bash
-git config user.name "你的名字"
-git config user.email "你的email@example.com"
-```
-
-> 建議 email 用你註冊 GitHub 的 email，這樣 commit 會自動連結到你的 GitHub 帳號。
+**建議流程：**
+1. 先 pull/rebase，嘗試合併內容。
+2. 如果真的只要保留本機內容，才用 `git push --force`。
+3. 團隊協作時請先溝通，避免覆蓋掉別人的 commit。
 
 ---
 
