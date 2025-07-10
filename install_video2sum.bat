@@ -56,6 +56,7 @@ if %errorlevel%==0 (
     )
     python -m pip install --upgrade pip
     python -m pip install python-dotenv google-generativeai
+    python -m pip show python-dotenv >nul 2>&1
     if %errorlevel% neq 0 (
         echo ❌ 依賴安裝失敗，請檢查 Python/pip 是否安裝正確！
         pause
