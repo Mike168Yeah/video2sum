@@ -46,7 +46,15 @@ cd "C:\MyProjects\AI\video-to-summary"
 - 完成後會自動建立 input、Media_Notes 等資料夾
 
 #### Gemini 模型說明
-- 安裝時會詢問 Gemini 模型，建議選 `gemini-2.5-pro`（預設），如需速度可選 flash，或自訂。
+- 安裝時會詢問 Gemini 模型，提供以下選項：
+  - `gemini-2.5-pro`（預設，推薦）- 輸出品質最細緻，適合需要高品質摘要的場景
+  - `gemini-2.5-flash` - 速度較快，適合快速處理
+  - `gemini-3-flash-preview`（新增）- 最新預覽版本，速度快且品質不錯
+  - 自訂模型名稱
+- **使用建議**：
+  - 優先使用 `gemini-2.5-pro`，輸出品質最佳
+  - 若遇到 2.5 系列模型無法通過驗證（可能是官方限制免費用戶），可改用 `gemini-3-flash-preview`
+  - 需要快速處理時可選擇 flash 系列模型
 - 安裝時可自訂 Gemini 模型名稱（如 pro、flash、其他）
 - 執行時會自動讀取 .env 內的 VIDEO2SUM_GEMINI_MODEL
 - 所有 Gemini API 呼叫都會用這個模型
