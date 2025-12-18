@@ -107,11 +107,14 @@ set MODEL_CHOICE=
 echo 請選擇要使用的 Gemini 模型:
 echo   1. gemini-2.5-pro (預設)
 echo   2. gemini-2.5-flash
-echo   3. 其他（手動輸入）
-set /p MODEL_CHOICE=請輸入選項編號（1/2/3）:
+echo   3. gemini-3-flash-preview
+echo   4. 其他（手動輸入）
+set /p MODEL_CHOICE=請輸入選項編號（1/2/3/4）:
 if "%MODEL_CHOICE%"=="2" (
     set VIDEO2SUM_GEMINI_MODEL=gemini-2.5-flash
 ) else if "%MODEL_CHOICE%"=="3" (
+    set VIDEO2SUM_GEMINI_MODEL=gemini-3-flash-preview
+) else if "%MODEL_CHOICE%"=="4" (
     set /p VIDEO2SUM_GEMINI_MODEL=請輸入自訂模型名稱:
 ) else (
     set VIDEO2SUM_GEMINI_MODEL=gemini-2.5-pro
